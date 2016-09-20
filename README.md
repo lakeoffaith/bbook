@@ -1,14 +1,11 @@
-##book
+##bbook
 
-##已完成
-	框架搭建
+##explain
+该走的路会走下去的。
 
-##待完成
-	RAP接口文档          2015-09-09
-  界面流程图						            
-
-
-
-
-
-#book
+##step
+2016-09-20 架子搭成
+![主界面](./doc/img/main.png)
+2016-09-20 RAP接口文档
+[http://rap.taobao.org/workspace/myWorkspace.do?projectId=7728#55151](http://rap.taobao.org/workspace/myWorkspace.do?projectId=7728#55151)
+2016-09-20 城市选择模块进行编写
