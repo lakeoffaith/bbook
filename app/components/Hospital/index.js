@@ -16,7 +16,9 @@ import GiftedListView from 'react-native-gifted-listview';
 import {PrimaryColor,Accent,PrimaryText,SecondText,DividerText} from '../ijoyComponents/color'
 import {Icon} from 'react-native-material-design';
 import {bindActionCreators} from 'redux';
-import {loadDataSource} from './actions'
+import {loadDataSource} from './actions';
+
+import  {BOOKLISTURL} from '../../data/rap'
 const repository=new DataRepository();
 const {
   popRoute,
@@ -28,12 +30,13 @@ const {
 	CardStack: NavigationCardStack
 } = NavigationExperimental;
  class Hospital extends React.Component{
-    _fetchHospital=()=>{
+   //317为成都的id
+    _fetchBookList=()=>{
+      const url=BOOKLISTURL
    		const {dispatch,actions}=this.props;
-   		repository.fetchHospital({'id':317})
-   		.then((dataArray)=>{
-   		    actions.loadDataSource(dataArray);
-   			console.log(dataArray);
+   		repository._getFetch(url)
+   		.then((responseData)=>{
+   		    actions.loadDataSource(responseData.result);
    		})
    		.catch((error)=>{
    			console.log(error);
@@ -41,7 +44,7 @@ const {
    		.done();
    	}
    	componentDidMount(){
-   		this._fetchHospital();
+   		this._fetchBookList();
    	}
    	_onFetch=(page = 1, callback, options)=> {
        	setTimeout(() => {
@@ -62,15 +65,13 @@ const {
      _renderRowView=(rowData)=>{
        return(
           <View>
-              <TouchableWithoutFeedback >
+              <TouchableWithoutFeedback onPress={this._goDepartmentList}>
               <View style={{flexDirection:'row',height:100,padding:15,borderBottomWidth:0.5,borderColor:DividerText}}>
                       <View>
-                          <Image source={{uri:"http://tnfs.tngou.net/image"+rowData.img}} style={{width:80,height:60}}/>
+                          <Image source={{uri:rowData.pic}} style={{width:80,height:60}}/>
                       </View>
                       <View style={{flex:1,marginLeft:15}}>
                            <Text style={{color:PrimaryText}}>{rowData.name}</Text>
-                           <Text style={{color:SecondText}}>{rowData.level}</Text >
-                           <Text style={{color:SecondText}} numberOfLines={1}>{rowData.mtype}</Text>
                       </View>
 
                       <View style={{width:50,paddingLeft:15,paddingRight:10,justifyContent:'center'}}>
