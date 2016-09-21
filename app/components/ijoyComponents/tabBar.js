@@ -21,7 +21,7 @@ export default class TabBar extends Component{
           <TouchableWithoutFeedback onPress={()=>{this.props.goSearch()}}>
           <View  style={{alignItems:'center',backgroundColor: '#ffffff',flexDirection:'row',borderLeftWidth:1,borderRightWidth:1,height:35,borderTopWidth:1,borderBottomWidth:1,borderColor:PrimaryColor,borderRadius:3}}>
             <Icon name='search' size={18} style={{marginRight:10}} />
-            <Text>搜索医院,科室，医生,疾病</Text>
+            <Text>搜索书籍名,分类</Text>
           </View>
               </TouchableWithoutFeedback>
           </View>

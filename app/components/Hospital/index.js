@@ -63,19 +63,28 @@ const {
           dispatch(pushRoute({key:'departmentList',name:'科室列表'},globalNavigation.key));
       }
      _renderRowView=(rowData)=>{
+       const blogView=<View style={styles.block}><Text>blog</Text></View>
+       const qqView=<View style={styles.block}><Text>qq</Text></View>
        return(
           <View>
               <TouchableWithoutFeedback onPress={this._goDepartmentList}>
-              <View style={{flexDirection:'row',height:100,padding:15,borderBottomWidth:0.5,borderColor:DividerText}}>
+              <View style={{flexDirection:'row',height:120,padding:10,borderBottomWidth:0.5,borderColor:DividerText}}>
                       <View>
-                          <Image source={{uri:rowData.pic}} style={{width:80,height:60}}/>
+                          <Image source={{uri:rowData.pic}} style={{width:100,height:100}}/>
                       </View>
                       <View style={{flex:1,marginLeft:15}}>
                            <Text style={{color:PrimaryText}}>{rowData.name}</Text>
+                           <Text style={{color:SecondText}}>{rowData.people}<Text style={{fontSize:12}}>人购买</Text></Text>
+
+                           <View style={{flexDirection:'row'}}>
+                              {rowData.blog===true?blogView:null}
+                              {rowData.qq===true?qqView:null}
+                           </View>
                       </View>
 
-                      <View style={{width:50,paddingLeft:15,paddingRight:10,justifyContent:'center'}}>
-                            <Icon name="navigate-next" color={Accent} size={20}/>
+                      <View style={{width:50,alignItems:'center',flexDirection:'column'}}>
+                            <Text style={{fontSize:12}}>评分</Text>
+                            <Text style={{color:Accent,fontSize:16}}>{rowData.score}</Text>
                       </View>
               </View>
               </TouchableWithoutFeedback>
