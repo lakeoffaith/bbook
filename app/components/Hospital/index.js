@@ -60,7 +60,7 @@ const {
        }
       _goDepartmentList=()=>{
           const {dispatch,globalNavigation}=this.props;
-          dispatch(pushRoute({key:'departmentList',name:'科室列表'},globalNavigation.key));
+          dispatch(pushRoute({key:'boookDetail'},globalNavigation.key));
       }
      _renderRowView=(rowData)=>{
        const blogView=<View style={styles.block}><Text>blog</Text></View>

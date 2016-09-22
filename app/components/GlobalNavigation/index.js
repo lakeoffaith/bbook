@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import ApplicationTabs from '../ApplicationTabs';
 import { actions } from 'react-native-navigation-redux-helpers';
 import Toolbar from '../ijoyComponents/toolbar';
-
+import BookDetail from '../BookDetail'
 import Searchbar from '../ijoyComponents/searchbar';
 import Search from '../Search';
 import Login from '../Login';
@@ -115,6 +115,15 @@ class GlobalNavigation extends Component {
         <View style={{flex:1}}>
              {toolBar }
            <Location
+           />
+        </View>
+      );
+    }
+    if(props.scene.route.key==='boookDetail'){
+      return (
+        <View style={{flex:1}}>
+             {toolBar }
+           <BookDetail
            />
         </View>
       );
