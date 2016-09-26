@@ -19,3 +19,6 @@
 	2016-09-22 书籍购买样式设计
 ![书本详细设计](./doc/img/bookDetailDesign.jpg)
 参考设计[http://tech.huanqiu.com/soft/2013-06/4047359.html](http://tech.huanqiu.com/soft/2013-06/4047359.html)
+
+	2016-09-26
+	![书本详细设计](./doc/img/bookDetail.png)
